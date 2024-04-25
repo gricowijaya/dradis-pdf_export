@@ -141,8 +141,9 @@ module Dradis
             #text fields['Description']
 
             move_down 20
-            text "<b>Mitigation:</b>", inline_format: true
-            text fields['Mitigation']
+            #text "<b>Mitigation:</b>", inline_format: true
+            #text fields['Mitigation']
+            table detailed_findings_data, header: true, position: :center
             start_new_page
           end
         end
