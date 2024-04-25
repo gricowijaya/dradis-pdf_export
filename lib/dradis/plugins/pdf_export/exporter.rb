@@ -134,11 +134,11 @@ module Dradis
 
           @sorted.each do |note|
             fields = note.fields
-            detailed_findings_data << [fields['Title'], fields['CVSSv2'], fields['Description']]
+            #detailed_findings_data << [fields['Title'], fields['CVSSv2'], fields['Description']]
             
             
-            #text "<b>#{fields['Title']}</b> (#{fields['CVSSv2']})", inline_format: true
-            #text fields['Description']
+            text "<b>#{fields['Title']}</b> (#{fields['CVSSv2']})", inline_format: true
+            text fields['Description']
 
             move_down 20
             #text "<b>Mitigation:</b>", inline_format: true
@@ -146,7 +146,7 @@ module Dradis
             start_new_page
           end
 
-          table detailed_findings_data, header: true, position: :center
+          #table detailed_findings_data, header: true, position: :center
         end
 
         def tool_list
