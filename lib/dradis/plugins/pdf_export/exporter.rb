@@ -49,19 +49,26 @@ module Dradis
 
         def cover_page
           move_down 50
+          # change your logo here
           image "#{Engine.config.paths['app/assets'].expanded.first}/logo_pdf.jpg", position: :center
           move_down 20
 
-          text '<b><font size="24">Security Assessment Report</font></b>', inline_format: true, align: :center
+          # put your client company name here
+          text '<b><font size="24">PT XYZ</font></b>', inline_format: true, align: :center
           move_down 20
-          text "BlackHat Arsenal 2018", align: :center
+          # put your company name here
+          text "MY COMPANY ABC", align: :center
 
 
-          bounding_box([300, 150], width: 200, height: 150) do
+          bounding_box([70, 150], width: 200, height: 150) do
+            text "Address                                                www.website.com", inline_format: :true, align: :left
+            text "Address 33333                                                              555-5555555", inline_format: :true, align: :left
+            text "Country", inline_format: :true, align: :left
+
             # transparent(0.5) { stroke_bounds }  # This will stroke on one page
-            text "<b>Author</b>: #{@author}", inline_format: :true
-            text "<b>Email</b>: #{@email}", inline_format: :true
-            text "<b>Date</b>: #{Time.now.strftime('%Y-%m-%d')}", inline_format: :true
+            #text "<b>Author</b>: #{@author}", inline_format: :true
+            #text "<b>Email</b>: #{@email}", inline_format: :true
+            #text "<b>Date</b>: #{Time.now.strftime('%Y-%m-%d')}", inline_format: :true
             # transparent(0.5) { stroke_bounds }  # And this will stroke on the next
           end
           start_new_page
