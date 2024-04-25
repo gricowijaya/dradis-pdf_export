@@ -108,7 +108,7 @@ module Dradis
         def summary_of_findings
           draw_header
 
-          text 'SUMMARY OF FINDINGS'
+          text '<b>SUMMARY OF FINDINGS<b>'
           move_down 20
 
           summary_of_findings_data = [['Title', 'CVSSv2']]
@@ -127,7 +127,7 @@ module Dradis
         def detailed_findings
           draw_header
 
-          text 'DETAILED FINDINGS'
+          text '<b>DETAILED FINDINGS<b>'
           move_down 20
 
           #detailed_findings_data = [['Title', 'CVSSv2', 'Description']]
@@ -138,12 +138,12 @@ module Dradis
             
             
             text "<b>#{fields['Title']}</b> - (#{fields['CVSSv2']})", inline_format: true
-            text 'DESCRIPTION'
-            move_down 10
+            move_down 20  
+            text '<b>DESCRIPTION<b>'
             text fields['Description']
 
             move_down 20
-            text 'SOLUTION'
+            text '<b> SOLUTION <b>'
             text fields['Solution']
             #text "<b>Mitigation:</b>", inline_format: true
             #text fields['Mitigation']
@@ -156,7 +156,7 @@ module Dradis
         def tool_list
           draw_header
 
-          text 'TOOLS USED'
+          text '<b>TOOLS USED<b>'
           move_down 20
 
           data = [
