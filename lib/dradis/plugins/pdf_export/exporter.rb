@@ -20,7 +20,7 @@ module Dradis
         def generate
           cover_page
           # project_notes
-          document_properties
+          # document_properties
           summary_of_findings
           detailed_findings
           tool_list
@@ -143,9 +143,10 @@ module Dradis
             move_down 20
             #text "<b>Mitigation:</b>", inline_format: true
             #text fields['Mitigation']
-            table detailed_findings_data, header: true, position: :center
             start_new_page
           end
+
+          table detailed_findings_data, header: true, position: :center
         end
 
         def tool_list
