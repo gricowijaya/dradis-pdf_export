@@ -115,7 +115,7 @@ module Dradis
 
           @sorted.each do |note|
             fields = note.fields
-            summary_of_findings_data < [fields['Title'], fields['CVSSv2']]
+            summary_of_findings_data << [fields['Title'], fields['CVSSv2']]
             #text "• #{fields['Title']} (#{fields['CVSSv2']})"
           end
 
@@ -134,7 +134,7 @@ module Dradis
 
           @sorted.each do |note|
             fields = note.fields
-            detailed_findings_data < [fields['Title'], fields['CVSSv2'], fields['Description']]
+            detailed_findings_data << [fields['Title'], fields['CVSSv2'], fields['Description']]
             
             
             #text "<b>#{fields['Title']}</b> (#{fields['CVSSv2']})", inline_format: true
