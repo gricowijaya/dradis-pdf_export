@@ -104,10 +104,15 @@ module Dradis
           text 'SUMMARY OF FINDINGS'
           move_down 20
 
+          summary_of_findings_data = [['Title', 'CVSSv2']]
+
           @sorted.each do |note|
             fields = note.fields
-            text "• #{fields['Title']} (#{fields['CVSSv2']})"
+            summary_of_findings_data < [fields['Title'], fields['CVSSv2']]
+            #text "• #{fields['Title']} (#{fields['CVSSv2']})"
           end
+
+          table summary_of_findings_data, header: true, position: :center
 
           start_new_page
         end
@@ -118,10 +123,15 @@ module Dradis
           text 'DETAILED FINDINGS'
           move_down 20
 
+          detailed_findings_data = [['Title', 'CVSSv2', 'Description']]
+
           @sorted.each do |note|
             fields = note.fields
-            text "<b>#{fields['Title']}</b> (#{fields['CVSSv2']})", inline_format: true
-            text fields['Description']
+            detailed_findings_data < [fields['Title'], fields['CVSSv2'], fields['Description']]
+            
+            
+            #text "<b>#{fields['Title']}</b> (#{fields['CVSSv2']})", inline_format: true
+            #text fields['Description']
 
             move_down 20
             text "<b>Mitigation:</b>", inline_format: true
