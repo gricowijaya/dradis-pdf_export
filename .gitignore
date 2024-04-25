@@ -2,3 +2,6 @@
 vendor/bundle/
 Gemfile.lock
 pkg/
+app/assets/images/logo-*.jpeg
+app/assets/images/logo-*.png
+app/assets/images/logo-*.jpg
