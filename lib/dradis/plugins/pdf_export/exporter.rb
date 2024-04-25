@@ -159,6 +159,7 @@ module Dradis
           ]
 
           data << ['Dradis Framework', "Collaboration and reporting framework\nhttp://dradisframework.org" ]
+          data << ['TheHive', "SIEM Tools integrated with MISP\n https://thehive-project.org" ]
 
           table data, header: true, position: :center
         end
