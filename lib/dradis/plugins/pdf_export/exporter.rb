@@ -20,6 +20,7 @@ module Dradis
         def generate
           cover_page
           # project_notes
+          document_properties
           summary_of_findings
           detailed_findings
           tool_list
@@ -79,6 +80,22 @@ module Dradis
           end
 
           start_new_page
+        end
+
+        def document_properties
+          draw_header
+
+          text 'Company' inline_format: true,
+          text 'Document Title'
+          text 'Document Number'
+          text 'Date'
+          text 'Classification'
+          text 'Document Type'
+
+          recipient_data = [[ 'Name', 'Title', 'Company']]
+          recipient_data << ['John Doe', 'Security Analyst', 'Security Testing Inc.']
+
+          table recipient_data, header: true, position: :center
         end
 
         def summary_of_findings
