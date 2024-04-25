@@ -92,12 +92,12 @@ module Dradis
         def document_properties
           draw_header
 
-          text 'Company' inline_format: true,
-          text 'Document Title'
-          text 'Document Number'
-          text 'Date'
-          text 'Classification'
-          text 'Document Type'
+          text "Company", inline_format: true, align: :left
+          text "Document Title", inline_format: true, align: :left
+          text "Document Number", inline_format: true, align: :left
+          text "Date  #{Time.now.strftime('%Y-%m-%d')}", inline_format: true, align: :left
+          text "Classification", inline_format: true, align: :left
+          text "Document Type", inline_format: true, align: :left
 
           recipient_data = [[ 'Name', 'Title', 'Company']]
           recipient_data << ['John Doe', 'Security Analyst', 'Security Testing Inc.']
