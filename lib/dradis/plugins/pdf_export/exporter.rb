@@ -130,17 +130,21 @@ module Dradis
           text 'DETAILED FINDINGS'
           move_down 20
 
-          detailed_findings_data = [['Title', 'CVSSv2', 'Description']]
+          #detailed_findings_data = [['Title', 'CVSSv2', 'Description']]
 
           @sorted.each do |note|
             fields = note.fields
             #detailed_findings_data << [fields['Title'], fields['CVSSv2'], fields['Description']]
             
             
-            text "<b>#{fields['Title']}</b> (#{fields['CVSSv2']})", inline_format: true
+            text "<b>#{fields['Title']}</b> - (#{fields['CVSSv2']})", inline_format: true
+            text 'DESCRIPTION'
+            move_down 10
             text fields['Description']
 
             move_down 20
+            text 'SOLUTION'
+            text fields['Solution']
             #text "<b>Mitigation:</b>", inline_format: true
             #text fields['Mitigation']
             start_new_page
