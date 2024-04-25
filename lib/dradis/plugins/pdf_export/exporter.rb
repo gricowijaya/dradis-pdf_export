@@ -19,7 +19,7 @@ module Dradis
 
         def generate
           cover_page
-          project_notes
+          # project_notes
           summary_of_findings
           detailed_findings
           tool_list
