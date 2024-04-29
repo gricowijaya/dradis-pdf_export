@@ -1,4 +1,3 @@
-require_relative 'text_variable'
 module Dradis
   module Plugins
     module PdfExport
@@ -77,11 +76,13 @@ module Dradis
         end
 
         def executive_summary 
+				  report_content = ReportContent.new
+
           draw_header
 
           text 'Executive Summary'
           move_down 20
-					text executive_text 
+					text report_content.get_executive_text 
 
           start_new_page
         end
