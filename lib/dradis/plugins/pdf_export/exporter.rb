@@ -1,3 +1,4 @@
+require_relative 'text_variable'
 module Dradis
   module Plugins
     module PdfExport
@@ -21,6 +22,7 @@ module Dradis
           cover_page
           # project_notes
           # document_properties
+          executive_summary
           summary_of_findings
           detailed_findings
           tool_list
@@ -71,6 +73,16 @@ module Dradis
             #text "<b>Date</b>: #{Time.now.strftime('%Y-%m-%d')}", inline_format: :true
             # transparent(0.5) { stroke_bounds }  # And this will stroke on the next
           end
+          start_new_page
+        end
+
+        def executive_summary 
+          draw_header
+
+          text 'Executive Summary'
+          move_down 20
+					text executive_text 
+
           start_new_page
         end
 
