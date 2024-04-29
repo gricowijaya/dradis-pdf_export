@@ -1,3 +1,5 @@
+require 'report_content'
+
 module Dradis
   module Plugins
     module PdfExport
@@ -82,7 +84,8 @@ module Dradis
 
           text 'Executive Summary'
           move_down 20
-					text report_content.get_executive_text 
+					text report_content.get_executive_intro 
+					text report_content.get_executive_purpose 
 
           start_new_page
         end
