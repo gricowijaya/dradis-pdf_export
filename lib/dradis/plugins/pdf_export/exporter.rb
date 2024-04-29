@@ -1,4 +1,4 @@
-require 'report_content'
+require_relative 'report_content'
 
 module Dradis
   module Plugins
