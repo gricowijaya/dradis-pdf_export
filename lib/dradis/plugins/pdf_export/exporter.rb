@@ -24,6 +24,7 @@ module Dradis
           # project_notes
           # document_properties
           executive_summary
+					import_markdown # import markdown file example
           summary_of_findings
           detailed_findings
           tool_list
@@ -49,6 +50,12 @@ module Dradis
            end
            @sorted = sorted[:high] + sorted[:medium] + sorted[:low] + sorted[:info]
         end
+
+				def parse_markdown
+					# render markdown files
+				  markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true, tables: true)
+					markdown.render(File.read('executive_summary.md'))
+				end
 
         def cover_page
           move_down 50
@@ -89,6 +96,14 @@ module Dradis
 
           start_new_page
         end
+
+				def import_markdown
+				  markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true, tables: true)
+					executive_summary = markdown.render(File.read('executive_summary.md'))
+
+					text executive_summary
+					start_new_page
+				end
 
         def project_notes
           draw_header
