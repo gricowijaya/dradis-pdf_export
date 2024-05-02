@@ -24,7 +24,7 @@ module Dradis
           # project_notes
           # document_properties
           executive_summary
-					import_markdown # import markdown file example
+					# import_markdown # import markdown file example
           summary_of_findings
           detailed_findings
           tool_list
@@ -89,7 +89,7 @@ module Dradis
 
           draw_header
 
-          text '<b>Executive Summary</b>'
+          text "<b>Executive Summary</b>", inline_format: true
           move_down 20
 					text report_content.get_executive_intro 
 					text report_content.get_executive_purpose 
@@ -97,13 +97,13 @@ module Dradis
           start_new_page
         end
 
-				def import_markdown
-				  markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true, tables: true)
-					executive_summary = markdown.render(File.read('executive_summary.md'))
+				# def import_markdown
+				#   markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true, tables: true)
+				# 	executive_summary = markdown.render(File.read('executive_summary.md'))
 
-					text executive_summary
-					start_new_page
-				end
+				# 	text executive_summary
+				# 	start_new_page
+				# end
 
         def project_notes
           draw_header
@@ -139,7 +139,7 @@ module Dradis
         def summary_of_findings
           draw_header
 
-          text '<b>SUMMARY OF FINDINGS</b>'
+          text "<b>SUMMARY OF FINDINGS</b>", inline_format: true
           move_down 20
 
           summary_of_findings_data = [['Title', 'CVSSv2']]
@@ -158,7 +158,7 @@ module Dradis
         def detailed_findings
           draw_header
 
-          text '<b>DETAILED FINDINGS</b>'
+          text "<b>DETAILED FINDINGS</b>", inline_format: true
           move_down 20
 
           #detailed_findings_data = [['Title', 'CVSSv2', 'Description']]
@@ -170,11 +170,11 @@ module Dradis
             
             text "<b>#{fields['Title']}</b> - (#{fields['CVSSv2']})", inline_format: true
             move_down 20  
-            text '<b>DESCRIPTION</b>'
+            text "<b>DESCRIPTION</b>", inline_format: true
             text fields['Description']
 
             move_down 20
-            text '<b>SOLUTION</b>'
+            text "<b>SOLUTION</b>", inline_format: true
             text fields['Solution']
             #text "<b>Mitigation:</b>", inline_format: true
             #text fields['Mitigation']
@@ -187,11 +187,11 @@ module Dradis
         def tool_list
           draw_header
 
-          text '<b>TOOLS USED</b>'
+          text "<b>TOOLS USED</b>", inline_format: true
           move_down 20
 
           data = [
-            ['<b>Name</b>', '<b>Description</b>']
+            ['Name', 'Description']
           ]
 
           data << ['Dradis Framework', "Collaboration and reporting framework\nhttp://dradisframework.org" ]
